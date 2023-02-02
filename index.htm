@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <title>POTIRENDABA Cidade Digital 3D</title>
+    <title>POTIRENDABA - Cidade Digital </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" id="metaViewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover" data-tdv-general-scale="0.5"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <script src="lib/tdvplayer.js?v=1675214336229"></script>
-    <link rel="preload" href="locale/pt.txt?v=1675214336229" as="fetch" crossorigin="anonymous"/>
-	<link rel="preload" href="script.js?v=1675214336229" as="script"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/r/3/0_0.jpg?v=1675214336229" as="image"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/l/3/0_0.jpg?v=1675214336229" as="image"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/u/3/0_0.jpg?v=1675214336229" as="image"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/d/3/0_0.jpg?v=1675214336229" as="image"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/f/3/0_0.jpg?v=1675214336229" as="image"/>
-	<link rel="preload" href="media/panorama_01FD3F42_0A57_9FDE_417E_A9DED03E5430_0/b/3/0_0.jpg?v=1675214336229" as="image"/>
-	<meta name="description" content="POTIRENDABA Cidade Digital vista 3D"/>
-	<meta name="theme-color" content="#FFFFCC"/>
-    <script src="script.js?v=1675214336229"></script>
+    <script src="lib/tdvplayer.js?v=1675301434602"></script>
+    <link rel="preload" href="locale/pt.txt?v=1675301434602" as="fetch" crossorigin="anonymous"/>
+	<link rel="preload" href="script.js?v=1675301434602" as="script"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/r/3/0_0.jpg?v=1675301434602" as="image"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/l/3/0_0.jpg?v=1675301434602" as="image"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/u/3/0_0.jpg?v=1675301434602" as="image"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/d/3/0_0.jpg?v=1675301434602" as="image"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/f/3/0_0.jpg?v=1675301434602" as="image"/>
+	<link rel="preload" href="media/panorama_048FBB18_0F4D_EB90_419D_9D88A88FE564_0/b/3/0_0.jpg?v=1675301434602" as="image"/>
+	<meta name="description" content="Virtual Tour"/>
+	<meta name="theme-color" content="#FFFFFF"/>
+    <script src="script.js?v=1675301434602"></script>
     <script type="text/javascript">
         var tour;
-        var devicesUrl = {"general":"script_general.js?v=1675214336229","mobile":"script_mobile.js?v=1675214336229"};
+        var devicesUrl = {"general":"script_general.js?v=1675301434602","mobile":"script_mobile.js?v=1675301434602"};
 
         (function()
         {
@@ -63,9 +63,9 @@
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1675214336229');
-            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1675214336229');
-            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1675214336229');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1675301434602');
+            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1675301434602');
+            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1675301434602');
 
             tour = new TDV.Tour(settings, devicesUrl);
             tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);
@@ -106,7 +106,7 @@
 
         function onVirtualTourLoaded()
         {
-            console.log("onloaded", tour.isPaused); if(!tour.isPaused) disposePreloader();
+            disposePreloader();
         }
 
         function onVirtualTourEnded()
@@ -237,13 +237,9 @@
 
             showPreloader();
 			loadTour();
-			pauseTour();
-			setTimeout(function(){ console.log("timeout", tour.isInitialized); if(tour.isInitialized) { disposePreloader(); } resumeTour(); }, 1000);
         }
 
-        
-
-        function playVideo(video, autoplayMuted, clickComponent) {
+        function playVideo(video) {
             function isSafariDesktopV11orGreater() {
                 return /^((?!chrome|android|crios|ipad|iphone).)*safari/i.test(navigator.userAgent) && parseFloat(/Version\/([0-9]+\.[0-9]+)/i.exec(navigator.userAgent)[1]) >= 11;
             }
@@ -255,7 +251,6 @@
             }
 
             function detectUserAction() {
-                var component = clickComponent || document.getElementById('preloadContainer');
                 var onVideoClick = function(e) {
                     if(video.paused) {
                         video.play();
@@ -268,38 +263,23 @@
                         e.preventDefault();
                     }
 
-                    component.removeEventListener('click', onVideoClick);
-                    component.removeEventListener('touchend', onVideoClick);
-
-                    if(component == clickComponent) {
-                        setComponentVisibility(false);
-                    }
+                    video.removeEventListener('click', onVideoClick);
+                    video.removeEventListener('touchend', onVideoClick);
                 };
-                component.addEventListener("click", onVideoClick);
-                component.addEventListener("touchend", onVideoClick);
-            }
-
-            function setComponentVisibility(visible) {
-                clickComponent.style.visibility = visible ? 'visible' : 'hidden';
+                video.addEventListener("click", onVideoClick);
+                video.addEventListener("touchend", onVideoClick);
             }
 
             if (isSafariDesktopV11orGreater()) {
-                if(autoplayMuted) {
-                    video.muted = true;
-                    video.play();
-                }
+                video.muted = true;
+                video.play();
             } else {
                 var canPlay = true;
                 var promise = video.play();
                 if (promise) {
                     promise.catch(function() {
-                        if(clickComponent)
-                            setComponentVisibility(true);
-                        canPlay = false;
-                        if(autoplayMuted) {
-                            video.muted = true;
-                            video.play();
-                        }
+                        video.muted = true;
+                        video.play();
                         detectUserAction();
                     });
                 } else {
@@ -308,8 +288,6 @@
 
                 if (!canPlay || video.muted) {
                     detectUserAction();
-                } else if(clickComponent) {
-                    setComponentVisibility(false);
                 }
             }
         }
@@ -331,12 +309,12 @@
         .fill-viewport.landscape-left { left: env(safe-area-inset-left); }
 		.fill-viewport.landscape-right { right: env(safe-area-inset-right); }
         #viewer { z-index:1; }
-        #preloadContainer { z-index:2; opacity:0; background-color:rgba(255,255,204,1); transition: opacity 0.5s; -webkit-transition: opacity 0.5s; -moz-transition: opacity 0.5s; -o-transition: opacity 0.5s;}
+        #preloadContainer { z-index:2; opacity:0; background-color:rgba(255,255,255,1); transition: opacity 0.5s; -webkit-transition: opacity 0.5s; -moz-transition: opacity 0.5s; -o-transition: opacity 0.5s;}
     </style>
-    <link rel="stylesheet" href="fonts.css?v=1675214336229">
+    <link rel="stylesheet" href="fonts.css?v=1675301434602">
 </head>
 <body>
-    <div id="preloadContainer" class="fill-viewport"><div style="z-index: 4; position: absolute; left: 0%; top: 50%; width: 100.00%; height: 10.00%" ><div style="text-align:left; color:#000; "><DIV STYLE="text-align:center;font-size:2.0864381520119224vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#777777;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:2.09vmin;word-break:break-word;"><B>Carregando a cidade de POTIRENDABA</B></SPAN></SPAN></DIV><DIV STYLE="text-align:center;font-size:2.0864381520119224vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#777777;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:2.09vmin;word-break:break-word;"><B>Aguarde...</B></SPAN></SPAN></DIV><DIV STYLE="text-align:center;font-size:2.0864381520119224vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#999999;font-size:2.09vmin;word-break:break-word;"><B><U>https://www.guiadivulgacidades.com.br/</U></B></SPAN></SPAN></DIV></div></div></div>
+    <div id="preloadContainer" class="fill-viewport"><div style="z-index: 4; position: absolute; left: 0%; top: 50%; width: 100.00%; height: 10.00%"><div style="text-align:left; color:#000; "><DIV STYLE="text-align:center;font-size:1.6666666666666665vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#777777;font-size:1.67vmin;font-family:Arial, Helvetica, sans-serif;">Loading virtual tour. Please wait...</SPAN></DIV></div></div></div>
     <div id="viewer" class="fill-viewport"></div>
 </body>
 </html>
